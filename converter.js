@@ -1801,11 +1801,11 @@ function recursive_hierachy(parent){
 	return parent
 }
 
-for(let i = 0; i < root_nodes.length; i++){
-	recursive_hierachy(root_nodes[i]);
 
+export function convert_json(){
+  for(let i = 0; i < root_nodes.length; i++){
+    recursive_hierachy(root_nodes[i]);
+  
+  }
+  return root_nodes;
 }
-console.log(root_nodes)
-
-
-// na deze recursie zou elke boom gemaakt kunnen worden door te itereren over de root nodes
