@@ -1780,29 +1780,32 @@ let temp = null;
 for(let i = 0; i < nodes_simpel.length; i++){
 	temp = nodes_simpel[i];
 	if(temp.type === "standard" || temp.type === "frame"){
-  	if(temp.parent == undefined){
-    	root_nodes.push(temp);
-    }else{
-    	if(inner_nodes[temp.parent] == undefined){
-			inner_nodes[temp.parent] = {children: []};
+		if(temp.parent == undefined){
+			root_nodes.push(temp);
+		}else{
+			if(inner_nodes[temp.parent] == undefined){
+				inner_nodes[temp.parent] = {children: []};
+			}
+			inner_nodes[temp.parent].children.push(temp);
 		}
-		inner_nodes[temp.parent].children.push(temp);
-    }
-  }
+	}
 }
 // hulpfunctie waarbij er recursief nodes worden toegevoegd aan hun ouder
 function recursive_hierachy(parent){
-	childs = inner_nodes[parent.id] === undefined ? [] : inner_nodes[parent.id].children;
-	childs2 = [];
+	let childs = inner_nodes[parent.id] === undefined ? [] : inner_nodes[parent.id].children;
+	let childs2 = [];
 	for(let j = 0; j < childs.length; j++){
 		childs2.push(recursive_hierachy(childs[j]));
 	}
-	parent.children.concat(childs2);
+	parent.children =childs2;
 	return parent
 }
 
 for(let i = 0; i < root_nodes.length; i++){
 	recursive_hierachy(root_nodes[i]);
+
 }
+console.log(root_nodes)
+
 
 // na deze recursie zou elke boom gemaakt kunnen worden door te itereren over de root nodes
