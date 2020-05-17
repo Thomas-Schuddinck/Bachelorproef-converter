@@ -13,3 +13,5 @@ function setVisualization(evt, visualization) {
     document.getElementById(visualization).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+window.onload = () => {document.getElementById("def").click();}
