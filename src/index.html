@@ -5,14 +5,20 @@
     <title>Bachelorproef Interactive Viz</title>
     <script src='https://d3js.org/d3.v4.min.js'></script>
     <script src="/src/js/converter.js"></script>
+    <script src="/src/js/tabs.js"></script>
     <script src="/src/js/visualization.js" type="module"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/tabstyle.css">
 </head>
 
 <body>
     <h1 class="head">Bachelorproef IBM Watson Assistant Visualization</h1>
-    <div id="viz"></div>
-    <svg id="viz_svg" height=80% width=80%></svg>
+    <div class="tab">
+        <button class="tablinks" onclick="setVisualization(event, 'viz')">Dendrogram/Tree</button>
+        <button class="tablinks" onclick="setVisualization(event, 'sunburst')">Sunburst Diagram</button>
+      </div>
+    <div id="viz" class="tabcontent"></div>
+    <div id="sunburst" class="tabcontent"></div>
 </body>
 
 </html>
