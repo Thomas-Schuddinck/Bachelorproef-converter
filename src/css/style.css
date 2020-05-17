@@ -1,0 +1,30 @@
+.head {
+    text-align: center;
+    color: cornflowerblue;
+}
+
+#viz {
+    height: 80%;
+    width: 100%;
+}
+
+.circle {
+    stroke-width: 10;
+}
+
+.circle_hasChildren {
+    fill: rgb(37, 55, 223);
+}
+
+.circle_hasNoChildren {
+    fill: rgb(214, 18, 18);
+}
+
+.text_hasChildren {
+    text-anchor: end;
+    fill: rgb(37, 55, 223);
+}
+
+.text_hasNoChildren {
+    text-anchor: start;
+}

@@ -1,113 +1,155 @@
 import {
     convert_json
 } from "./converter.js";
-/*
-const root = d3.hierarchy(convert_json());
 
-let dy = 160;
-let dx = 10;
-root.x0 = dy / 2;
-root.y0 = 0;
+//define layout constraints
 let margin = ({
     top: 10,
     right: 120,
     bottom: 10,
     left: 40
-});
-let tree = d3.tree().nodeSize([dx, dy]);
-let diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x);
+})
+
+let width = 2000;
+let dy = width/10;
+let dx = 20;
+
+let tree = d3.tree().nodeSize([dx, dy])
+let diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x)
+
+const root = d3.hierarchy(convert_json());
 
 root.x0 = dy / 2;
 root.y0 = 0;
-
 root.descendants().forEach((d, i) => {
     d.id = i;
     d._children = d.children;
     if (d.depth && d.data.name.length !== 7) d.children = null;
 });
 
-let x0 = Infinity;
-let x1 = -x0;
-root.each(d => {
-    if (d.x > x1) x1 = d.x;
-    if (d.x < x0) x0 = d.x;
-});*/
-let width = 954;
-
-let tree = data => {
-    const root = d3.hierarchy(data);
-    root.dx = 35;
-    root.dy = width / (root.height + 1);
-    return d3.tree().nodeSize([root.dx, root.dy])(root);
-}
-
-const root = tree(convert_json());
-
-  let x0 = Infinity;
-  let x1 = -x0;
-  root.each(d => {
-    if (d.x > x1) x1 = d.x;
-    if (d.x < x0) x0 = d.x;
-  });
-
-
 const visualization = d3.select("#viz")
     .append("svg")
-    .attr('width', '100%')
-    .attr('height', '1000')
+    .attr("viewBox", [-margin.left, -margin.top, width, dx])
+    .style("font", "10px sans-serif")
+    .style("user-select", "none");
 
-console.log(root.dx);
 
-const g = visualization.append("g")
-    .attr("font-family", "sans-serif")
-    .attr("font-size", 15)
-    .attr("transform", `translate(${root.dy / 3},${root.dx - x0})`);
-
-const link = g.append("g")
+const gLink = visualization.append("g")
     .attr("fill", "none")
     .attr("stroke", "#555")
     .attr("stroke-opacity", 0.4)
-    .attr("stroke-width", 2)
-    .selectAll("path")
-    .data(root.links())
-    .enter().append('path')
-    .attr("d", d3.linkHorizontal()
-        .x(d => d.y)
-        .y(d => d.x));
+    .attr("stroke-width", 1.5);
 
-const node = g.append("g")
-    .attr("stroke-linejoin", "round")
-    .attr("stroke-width", 3)
-    .selectAll("g")
-    .data(root.descendants())
-    .enter().append('g')
-    .attr("transform", d => `translate(${d.y},${d.x})`);
+const gNode = visualization.append("g")
+    .attr("cursor", "pointer")
+    .attr("pointer-events", "all");
 
-node.append("circle")
-    .attr("fill", d => d.children ? "#555" : "#999")
-    .attr("r", 2.5);
+function update(source) {
+    const duration = d3.event && d3.event.altKey ? 2500 : 250;
+    const nodes = root.descendants().reverse();
+    const links = root.links();
 
-node.append("text")
-    .attr("dy", "0.31em")
-    .attr("x", d => d.children ? -6 : 6)
-    .attr("text-anchor", d => d.children ? "end" : "start")
-    .text(d => d.data.name)
-    .clone(true).lower()
-    .attr("stroke", "white");
+    // Compute the new tree layout.
+    tree(root);
+
+    let left = root;
+    let right = root;
+    root.eachBefore(node => {
+        if (node.x < left.x) left = node;
+        if (node.x > right.x) right = node;
+    });
+
+    const height = right.x - left.x + margin.top + margin.bottom;
+
+    const transition = visualization.transition()
+        .duration(duration)
+        .attr("viewBox", [-margin.left, left.x - margin.top, width, height])
+        .tween("resize", window.ResizeObserver ? null : () => () => visualization.dispatch("toggle"));
+
+    // Update the nodes…
+    const node = gNode.selectAll("g")
+        .data(nodes, d => d.id);
+
+    // Enter any new nodes at the parent's previous position.
+    const nodeEnter = node.enter().append("g")
+        .attr("transform", d => `translate(${source.y0},${source.x0})`)
+        .attr("fill-opacity", 0)
+        .attr("stroke-opacity", 0)
+        .attr("class", "node")
+        .on("click", d => {
+            d.children = d.children ? null : d._children;
+            update(d);
+        });
+
+    nodeEnter.append("circle")
+        .attr("r", 3.5)
+        .attr("class", "circle")
+        .attr("class", d => d._children ? "circle_hasChildren" : "circle_hasNoChildren")
+
+
+    nodeEnter.append("text")
+        .attr("dy", "0.31em")
+        .attr("x", d => d._children ? -6 : 6)
+        .attr("class", d => d._children ? "text_hasChildren" : "text_hasNoChildren")
+        .text(d => d.data.name)
+        .clone(true).lower()
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-width", 3)
+        .attr("stroke", "white");
+
+    // Transition nodes to their new position.
+    const nodeUpdate = node.merge(nodeEnter).transition(transition)
+        .attr("transform", d => `translate(${d.y},${d.x})`)
+        .attr("fill-opacity", 1)
+        .attr("stroke-opacity", 1);
+
+    // Transition exiting nodes to the parent's new position.
+    const nodeExit = node.exit().transition(transition).remove()
+        .attr("transform", d => `translate(${source.y},${source.x})`)
+        .attr("fill-opacity", 0)
+        .attr("stroke-opacity", 0);
+
+    // Update the links
+    const link = gLink.selectAll("path")
+        .data(links, d => d.target.id);
+
+    // Enter any new links at the parent's previous position.
+    const linkEnter = link.enter().append("path")
+        .attr("d", d => {
+            const o = {
+                x: source.x0,
+                y: source.y0
+            };
+            return diagonal({
+                source: o,
+                target: o
+            });
+        });
+
+    // Transition links to their new position.
+    link.merge(linkEnter).transition(transition)
+        .attr("d", diagonal);
+
+    // Transition exiting nodes to the parent's new position.
+    link.exit().transition(transition).remove()
+        .attr("d", d => {
+            const o = {
+                x: source.x,
+                y: source.y
+            };
+            return diagonal({
+                source: o,
+                target: o
+            });
+        });
+
+    // Stash the old positions for transition.
+    root.eachBefore(d => {
+        d.x0 = d.x;
+        d.y0 = d.y;
+    });
+}
+
+update(root);
 
 visualization.node();
-
-
-/*
-
-*/
-/*
-visualization.append("defs").html(`
-<style>
-.highlight circle { fill:blue }
-.highlight text { fill:blue }
-.leaf circle { fill:green }
-.leaf text { fill:green }
-path.highlight { stroke:blue }
-<style>`);
-*/
