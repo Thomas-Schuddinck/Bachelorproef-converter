@@ -1804,8 +1804,7 @@ function recursive_hierachy(parent){
 
 export function convert_json(){
   for(let i = 0; i < root_nodes.length; i++){
-    recursive_hierachy(root_nodes[i]);
-  
+    recursive_hierachy(root_nodes[i]);  
   }
-  return root_nodes;
+  return {name: "root", children: root_nodes};
 }
