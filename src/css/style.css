@@ -28,3 +28,23 @@
 .text_hasNoChildren {
     text-anchor: start;
 }
+
+.titel {
+    color: white;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 20%;
+    margin: 0 auto;
+}
+
+td {
+    padding: 15px;
+    text-align: start;
+    color: white;
+}
+td:nth-child(even){
+    text-align: end;
+}

@@ -1766,9 +1766,29 @@ let test = {
   "description": ""
 }
 
+function getOutput(node){  
+  let out = []
+  if((node.type !== "standard" && node.type !== "frame")|| node.output ==undefined ){
+    return out;
+  }
+  let gen = node.output.generic;  
+  for(let i = 0; i < gen.length; i++){
+    console.log(gen[i])
+    if(gen[i].response_type == "text"){
+      if(!out.includes("TEXT")){
+        out.push("TEXT");
+      }        
+    }
+    if(gen[i].response_type == "options"){
+      out.push("OPTIES");
+    }
+  }
+  return out;
+}
+
 //map alle data naar een versimpeld model
 let nodes = test.dialog_nodes;
-let nodes_simpel = nodes.map(n => ({name: n.title, cond: n.conditions, type: n.type, parent: n.parent, id: n.dialog_node, children: []}));
+let nodes_simpel = nodes.map(n => ({name: n.title, cond: n.conditions, type: n.type, parent: n.parent, id: n.dialog_node, children: [], output: getOutput(n)}));
 
 
 // maak een array voor de root nodes

@@ -7,12 +7,26 @@
     <script src="/src/js/converter.js"></script>
     <script src="/src/js/tabs.js"></script>
     <script src="/src/js/dendrogram.js" type="module"></script>
+    <script src="/src/js/sunburst.js" type="module"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/tabstyle.css">
 </head>
 
 <body>
     <h1 class="head">Bachelorproef IBM Watson Assistant Visualization</h1>
+    <div id="details"class="tab">
+        <h2 id="name" class="titel"></h2>
+        <table>
+            <tr>
+                <td>Trigger</td>
+                <td id="trigger"></td>
+            </tr>
+            <tr>
+                <td>Output</td>
+                <td id="type"></td>
+            </tr>
+        </table>
+    </div>
     <div class="tab">
         <button id="def" class="tablinks" onclick="setVisualization(event, 'viz')">Dendrogram/Tree</button>
         <button class="tablinks" onclick="setVisualization(event, 'sunburst')">Sunburst Diagram</button>

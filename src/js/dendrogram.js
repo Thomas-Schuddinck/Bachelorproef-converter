@@ -1,7 +1,7 @@
 import {
     convert_json
 } from "./converter.js";
-
+import { onEnterNode, onExitNode } from "./hover.js";
 //define layout constraints
 let margin = ({
     top: 10,
@@ -79,7 +79,10 @@ function update(source) {
         .on("click", d => {
             d.children = d.children ? null : d._children;
             update(d);
-        });
+        })
+        .on("mouseover",d =>  onEnterNode(d))
+        .on("mouseout", onExitNode());
+        
 
     nodeEnter.append("circle")
         .attr("r", 3.5)
