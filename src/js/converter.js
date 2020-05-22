@@ -1652,7 +1652,6 @@ function getOutput(node) {
   }
   let gen = node.output.generic;
   for (let i = 0; i < gen.length; i++) {
-    console.log(gen[i])
     if (gen[i].response_type == "text") {
       if (!out.includes("TEXT")) {
         out.push("TEXT");
@@ -1711,38 +1710,53 @@ for (let i = 0; i < nodes_simpel.length; i++) {
 console.log(secondary_nodes)
 // hulpfunctie waarbij er recursief nodes worden toegevoegd aan hun ouder
 function recursive_hierachy(parent) {
+  parent = checkSecondaryNodes(parent);
   let childs = inner_nodes[parent.id] === undefined ? [] : inner_nodes[parent.id].children;
   let childs2 = [];
   for (let j = 0; j < childs.length; j++) {
-    childs[j] = checkSecondaryNodes(childs[j]);
+
     childs2.push(recursive_hierachy(childs[j]));
   }
   parent.children = childs2;
   return parent
 }
 
-function checkSecondaryNodes(node) {
-  let secondary = secondary_nodes[node.id];
-  node.events = false;
-  node.slots = false;
-  node.condResp = false;
-  node.eventnames = []
+function checkSecondaryNodes(node, childnode = null) {
+  let secondary;
+  if (childnode === null) {
+    node.events = false;
+    node.slots = false;
+    node.condResp = false;
+    node.eventnames = []
+    secondary = secondary_nodes[node.id]
+  } else {
+    secondary = secondary_nodes[childnode.id];
+  }
+  let tempvalue;
   if (secondary !== undefined) {
     for (let i = 0; i < secondary.children.length; i++) {
-      if (secondary.children[i].type === "event_handler") {
+      tempvalue = secondary.children[i];
+      if (tempvalue.type === "event_handler") {
         node.events = true;
-        node.eventnames.push(secondary.children[i].event)
+        node.eventnames.push(tempvalue.event)
       }
-      if (secondary.children[i].type === "slot") {
+      if (tempvalue.type === "slot") {
         node.slots = true;
       }
-      if (secondary.children[i].type === "response_condition") {
+      if (tempvalue.type === "response_condition") {
         node.condResp = true;
       }
+      if (secondary_nodes[tempvalue.id] !== undefined) {
+        console.log(tempvalue.id)
+        checkSecondaryNodes(node, tempvalue);
+      }
     }
-  }  
+  }
+
   return node;
 }
+console.log("ok")
+console.log(secondary_nodes)
 
 
 export function convert_json() {
