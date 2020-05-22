@@ -1,7 +1,10 @@
 import {
     convert_json
 } from "./converter.js";
-import { onEnterNode, onExitNode } from "./hover.js";
+import {
+    onEnterNode,
+    onExitNode
+} from "./hover.js";
 //define layout constraints
 let margin = ({
     top: 10,
@@ -11,7 +14,7 @@ let margin = ({
 })
 
 let width = 2000;
-let dy = width/10;
+let dy = width / 10;
 let dx = 20;
 
 let tree = d3.tree().nodeSize([dx, dy])
@@ -31,7 +34,13 @@ const visualization = d3.select("#viz")
     .append("svg")
     .attr("viewBox", [-margin.left, -margin.top, width, dx])
     .style("font", "10px sans-serif")
-    .style("user-select", "none");
+    .style("user-select", "none")
+    .call(d3.zoom().on("zoom", function () {
+        visualization.attr("transform", d3.event.transform)
+     }));
+
+
+// define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
 
 
 const gLink = visualization.append("g")
@@ -80,9 +89,9 @@ function update(source) {
             d.children = d.children ? null : d._children;
             update(d);
         })
-        .on("mouseover",d =>  onEnterNode(d))
+        .on("mouseover", d => onEnterNode(d))
         .on("mouseout", onExitNode());
-        
+
 
     nodeEnter.append("circle")
         .attr("r", 3.5)
@@ -154,5 +163,4 @@ function update(source) {
 }
 
 update(root);
-
 visualization.node();

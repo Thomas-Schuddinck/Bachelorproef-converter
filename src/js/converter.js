@@ -1761,7 +1761,7 @@ let test = {
     "spelling_auto_correct": true
   },
   "learning_opt_out": false,
-  "name": "My first skill",
+  "name": "Sherlock",
   "language": "en",
   "description": ""
 }
@@ -1828,3 +1828,5 @@ export function convert_json(){
   }
   return {name: "root", children: root_nodes};
 }
+
+document.getElementById('chatbot').innerHTML = "CHATBOT: " + test.name
