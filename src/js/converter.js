@@ -1,9 +1,7 @@
 let test = {
-  "intents": [
-    {
+  "intents": [{
       "intent": "CupcakeSamenstellen",
-      "examples": [
-        {
+      "examples": [{
           "text": "ik wil een cupcake maken"
         },
         {
@@ -29,8 +27,7 @@ let test = {
     },
     {
       "intent": "ReservatieMaken",
-      "examples": [
-        {
+      "examples": [{
           "text": "Reservatie voor vier"
         },
         {
@@ -56,8 +53,7 @@ let test = {
     },
     {
       "intent": "SupplierOnboarding",
-      "examples": [
-        {
+      "examples": [{
           "text": "What is the process to on-board a new supplier?"
         },
         {
@@ -82,8 +78,7 @@ let test = {
     },
     {
       "intent": "ResetPassword",
-      "examples": [
-        {
+      "examples": [{
           "text": "How can I reset my password?"
         },
         {
@@ -105,8 +100,7 @@ let test = {
     },
     {
       "intent": "Bored",
-      "examples": [
-        {
+      "examples": [{
           "text": "super saai"
         },
         {
@@ -138,8 +132,7 @@ let test = {
     },
     {
       "intent": "Greetings",
-      "examples": [
-        {
+      "examples": [{
           "text": "Bonjour"
         },
         {
@@ -176,8 +169,7 @@ let test = {
     },
     {
       "intent": "Goodbye",
-      "examples": [
-        {
+      "examples": [{
           "text": "have a good day"
         },
         {
@@ -218,8 +210,7 @@ let test = {
     },
     {
       "intent": "CupcakeUitkiezen",
-      "examples": [
-        {
+      "examples": [{
           "text": "standaard cupcake"
         },
         {
@@ -254,8 +245,7 @@ let test = {
     },
     {
       "intent": "BezoekenCupcakeWinkel",
-      "examples": [
-        {
+      "examples": [{
           "text": "ik wil een cupcake eten"
         },
         {
@@ -290,8 +280,7 @@ let test = {
     },
     {
       "intent": "ApplicationAccess",
-      "examples": [
-        {
+      "examples": [{
           "text": "What is the status of the business application?"
         },
         {
@@ -335,8 +324,7 @@ let test = {
     },
     {
       "intent": "BYOD",
-      "examples": [
-        {
+      "examples": [{
           "text": "bring my laptop"
         },
         {
@@ -366,21 +354,17 @@ let test = {
       ]
     }
   ],
-  "entities": [
-    {
+  "entities": [{
       "entity": "byod",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "BYOD",
-          "synonyms": []
-        }
-      ]
+      "values": [{
+        "type": "synonyms",
+        "value": "BYOD",
+        "synonyms": []
+      }]
     },
     {
       "entity": "kaartType",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "maestro",
           "synonyms": []
@@ -402,21 +386,18 @@ let test = {
     },
     {
       "entity": "tester",
-      "values": [
-        {
-          "type": "patterns",
-          "value": "testpatroon",
-          "patterns": [
-            "sfdqdsfqsdfq"
-          ]
-        }
-      ],
+      "values": [{
+        "type": "patterns",
+        "value": "testpatroon",
+        "patterns": [
+          "sfdqdsfqsdfq"
+        ]
+      }],
       "fuzzy_match": true
     },
     {
       "entity": "kaartOfCash",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "kaart",
           "synonyms": [
@@ -441,8 +422,7 @@ let test = {
     },
     {
       "entity": "Application",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "Inventory",
           "synonyms": [
@@ -470,28 +450,23 @@ let test = {
     },
     {
       "entity": "password",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "password",
-          "synonyms": []
-        }
-      ]
+      "values": [{
+        "type": "synonyms",
+        "value": "password",
+        "synonyms": []
+      }]
     },
     {
       "entity": "Bonjour",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "Greetings",
-          "synonyms": []
-        }
-      ]
+      "values": [{
+        "type": "synonyms",
+        "value": "Greetings",
+        "synonyms": []
+      }]
     },
     {
       "entity": "deeg",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "Deeg op grootmoeders wijze",
           "synonyms": [
@@ -526,8 +501,7 @@ let test = {
     },
     {
       "entity": "yes-no",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "yes",
           "synonyms": [
@@ -545,21 +519,18 @@ let test = {
     },
     {
       "entity": "supplier",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "supplier",
-          "synonyms": [
-            "partner",
-            "company"
-          ]
-        }
-      ]
+      "values": [{
+        "type": "synonyms",
+        "value": "supplier",
+        "synonyms": [
+          "partner",
+          "company"
+        ]
+      }]
     },
     {
       "entity": "joke",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "Joke",
           "synonyms": [
@@ -589,18 +560,15 @@ let test = {
     },
     {
       "entity": "hey",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "Greetings",
-          "synonyms": []
-        }
-      ]
+      "values": [{
+        "type": "synonyms",
+        "value": "Greetings",
+        "synonyms": []
+      }]
     },
     {
       "entity": "sprinkels",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "chocolade",
           "synonyms": [
@@ -631,8 +599,7 @@ let test = {
     },
     {
       "entity": "cremeTopping",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "frambozencrème",
           "synonyms": [
@@ -668,8 +635,7 @@ let test = {
     },
     {
       "entity": "cookiesTopping",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "bueno",
           "synonyms": []
@@ -697,8 +663,7 @@ let test = {
     },
     {
       "entity": "Riddle",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "Raadsel",
           "synonyms": [
@@ -719,8 +684,7 @@ let test = {
     },
     {
       "entity": "StandaardCupcakes",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "framboos-sprinkels cupcake",
           "synonyms": [
@@ -754,18 +718,15 @@ let test = {
     },
     {
       "entity": "Hello",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "Greetings",
-          "synonyms": []
-        }
-      ]
+      "values": [{
+        "type": "synonyms",
+        "value": "Greetings",
+        "synonyms": []
+      }]
     },
     {
       "entity": "KeuzeMenuOptie",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "Optie1",
           "synonyms": [
@@ -792,8 +753,7 @@ let test = {
     },
     {
       "entity": "numbers",
-      "values": [
-        {
+      "values": [{
           "type": "synonyms",
           "value": "Seven",
           "synonyms": [
@@ -898,13 +858,11 @@ let test = {
     },
     {
       "entity": "Hi",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "Greetings",
-          "synonyms": []
-        }
-      ]
+      "values": [{
+        "type": "synonyms",
+        "value": "Greetings",
+        "synonyms": []
+      }]
     }
   ],
   "metadata": {
@@ -913,31 +871,27 @@ let test = {
       "minor_version": "2018-11-08"
     }
   },
-  "dialog_nodes": [
-    {
+  "dialog_nodes": [{
       "type": "standard",
       "title": "Tell a riddle",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "What comes once in a minute, twice in a moment but never in a thousand years \n \n \n\n\nthe letter m"
-              },
-              {
-                "text": "I can fly, but I have no wings. I can cry, but I have no eyes. Wherever I go, darkness follows me. What am I?\n\n\n\n\n\nA cloud"
-              },
-              {
-                "text": "What gets wet while drying?\n\n\n\n\n\nA Towel"
-              },
-              {
-                "text": "What is the longest word in the dictionary?\n\n\n\n\n\n\nSmiles (there is a mile between the two S's)"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "What comes once in a minute, twice in a moment but never in a thousand years \n \n \n\n\nthe letter m"
+            },
+            {
+              "text": "I can fly, but I have no wings. I can cry, but I have no eyes. Wherever I go, darkness follows me. What am I?\n\n\n\n\n\nA cloud"
+            },
+            {
+              "text": "What gets wet while drying?\n\n\n\n\n\nA Towel"
+            },
+            {
+              "text": "What is the longest word in the dictionary?\n\n\n\n\n\n\nSmiles (there is a mile between the two S's)"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_7_1583184097089",
       "conditions": "@Riddle",
@@ -948,41 +902,38 @@ let test = {
       "type": "standard",
       "title": "Tell a joke",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Take a look in the mirror"
-              },
-              {
-                "text": "What's the best thing about Switzerland? IDK, but the flag is a big plus!"
-              },
-              {
-                "text": "KNOCK KNOCK! Who's there? KGB! KGB Wh- *gets slapped* Wie wil ask ze questions!!!"
-              },
-              {
-                "text": "Why did the bike fall over? It was tired? "
-              },
-              {
-                "text": "Why was 6 afraid of 9 on new year's eve? Because 9, 8, 7 ...."
-              },
-              {
-                "text": "Why don't scientists trust atoms? Because they make up everything!"
-              },
-              {
-                "text": "Behind every angry woman, stands a man wha has absolutely no clue what he did wrong!"
-              },
-              {
-                "text": "World's shortest joke: 2 women sitting quietly"
-              },
-              {
-                "text": "How do you know your girlfriend is getting fat? She fits into your wife's clothes."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "Take a look in the mirror"
+            },
+            {
+              "text": "What's the best thing about Switzerland? IDK, but the flag is a big plus!"
+            },
+            {
+              "text": "KNOCK KNOCK! Who's there? KGB! KGB Wh- *gets slapped* Wie wil ask ze questions!!!"
+            },
+            {
+              "text": "Why did the bike fall over? It was tired? "
+            },
+            {
+              "text": "Why was 6 afraid of 9 on new year's eve? Because 9, 8, 7 ...."
+            },
+            {
+              "text": "Why don't scientists trust atoms? Because they make up everything!"
+            },
+            {
+              "text": "Behind every angry woman, stands a man wha has absolutely no clue what he did wrong!"
+            },
+            {
+              "text": "World's shortest joke: 2 women sitting quietly"
+            },
+            {
+              "text": "How do you know your girlfriend is getting fat? She fits into your wife's clothes."
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_7_1583184097089",
       "conditions": "@joke",
@@ -992,38 +943,35 @@ let test = {
       "type": "standard",
       "title": "betaal met kaart",
       "output": {
-        "generic": [
-          {
-            "title": "En met welke kaart wenst u te betalen?",
-            "options": [
-              {
-                "label": "Maestro",
-                "value": {
-                  "input": {
-                    "text": "maestro"
-                  }
-                }
-              },
-              {
-                "label": "Master",
-                "value": {
-                  "input": {
-                    "text": "master"
-                  }
-                }
-              },
-              {
-                "label": "Visa",
-                "value": {
-                  "input": {
-                    "text": "visa"
-                  }
+        "generic": [{
+          "title": "En met welke kaart wenst u te betalen?",
+          "options": [{
+              "label": "Maestro",
+              "value": {
+                "input": {
+                  "text": "maestro"
                 }
               }
-            ],
-            "response_type": "option"
-          }
-        ]
+            },
+            {
+              "label": "Master",
+              "value": {
+                "input": {
+                  "text": "master"
+                }
+              }
+            },
+            {
+              "label": "Visa",
+              "value": {
+                "input": {
+                  "text": "visa"
+                }
+              }
+            }
+          ],
+          "response_type": "option"
+        }]
       },
       "parent": "node_7_1587131892229",
       "conditions": "@kaartOfCash:kaart",
@@ -1066,20 +1014,17 @@ let test = {
       "type": "standard",
       "title": "Ga naar afrekenen",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Oké, ik stuur u door naar de kassa!"
-              },
-              {
-                "text": "Top! Volgt u mij tot aan de kassa?"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "Oké, ik stuur u door naar de kassa!"
+            },
+            {
+              "text": "Top! Volgt u mij tot aan de kassa?"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_2_1587132643052",
       "next_step": {
@@ -1139,38 +1084,35 @@ let test = {
       "type": "standard",
       "title": "cupcake uitkiezen",
       "output": {
-        "generic": [
-          {
-            "title": "Perfect! en welke cupcake wenst u?",
-            "options": [
-              {
-                "label": "Kers/Oreo",
-                "value": {
-                  "input": {
-                    "text": "Framboos-oreo cupcake"
-                  }
-                }
-              },
-              {
-                "label": "Framboos/Sprinkels",
-                "value": {
-                  "input": {
-                    "text": "Framboos-sprinkels cupcake"
-                  }
-                }
-              },
-              {
-                "label": "Aardbei/Cookies",
-                "value": {
-                  "input": {
-                    "text": "Aardbei-cookies cupcake"
-                  }
+        "generic": [{
+          "title": "Perfect! en welke cupcake wenst u?",
+          "options": [{
+              "label": "Kers/Oreo",
+              "value": {
+                "input": {
+                  "text": "Framboos-oreo cupcake"
                 }
               }
-            ],
-            "response_type": "option"
-          }
-        ]
+            },
+            {
+              "label": "Framboos/Sprinkels",
+              "value": {
+                "input": {
+                  "text": "Framboos-sprinkels cupcake"
+                }
+              }
+            },
+            {
+              "label": "Aardbei/Cookies",
+              "value": {
+                "input": {
+                  "text": "Aardbei-cookies cupcake"
+                }
+              }
+            }
+          ],
+          "response_type": "option"
+        }]
       },
       "parent": "node_5_1586608437803",
       "conditions": "#CupcakeUitkiezen",
@@ -1188,20 +1130,17 @@ let test = {
       "type": "standard",
       "title": "GrandChildNodeTest2",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "grandchild 2 response 1"
-              },
-              {
-                "text": "grandchild 2 response 2"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "grandchild 2 response 1"
+            },
+            {
+              "text": "grandchild 2 response 2"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_2_1583225702635",
       "dialog_node": "node_9_1583225751854",
@@ -1211,23 +1150,20 @@ let test = {
       "type": "standard",
       "title": "GrandChildNodeTest1",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "grandchild 1 response 1"
-              },
-              {
-                "text": "grandchild 1 response 2"
-              },
-              {
-                "text": "grandchild 1 response 3"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "grandchild 1 response 1"
+            },
+            {
+              "text": "grandchild 1 response 2"
+            },
+            {
+              "text": "grandchild 1 response 3"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_2_1583225702635",
       "dialog_node": "node_9_1583225741000"
@@ -1236,20 +1172,17 @@ let test = {
       "type": "standard",
       "title": "betalen met visa",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Met Visa? Geen probleem! Betaling is gelukt!"
-              },
-              {
-                "text": "Visa? Okido! Betaling geslaagd!"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "Met Visa? Geen probleem! Betaling is gelukt!"
+            },
+            {
+              "text": "Visa? Okido! Betaling geslaagd!"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_8_1587133522792",
       "next_step": {
@@ -1265,20 +1198,17 @@ let test = {
       "type": "standard",
       "title": "betalen met master",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Okido. Als u juist uw gegevens wil doorgeven... Top! Dat is in orde!"
-              },
-              {
-                "text": "Even uw gegevens valideren.. Betaling is gelukt!"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "Okido. Als u juist uw gegevens wil doorgeven... Top! Dat is in orde!"
+            },
+            {
+              "text": "Even uw gegevens valideren.. Betaling is gelukt!"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_8_1587133522792",
       "next_step": {
@@ -1294,20 +1224,17 @@ let test = {
       "type": "standard",
       "title": "betalen met maestro",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "U heeft betaald met Maestro!"
-              },
-              {
-                "text": "Betaling met Maestro gelukt!"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "U heeft betaald met Maestro!"
+            },
+            {
+              "text": "Betaling met Maestro gelukt!"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_8_1587133522792",
       "next_step": {
@@ -1322,23 +1249,20 @@ let test = {
       "type": "standard",
       "title": "ChildNodeTest2",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "child 2 response 1"
-              },
-              {
-                "text": "child 2 response 2"
-              },
-              {
-                "text": "child 2 response 3"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "child 2 response 1"
+            },
+            {
+              "text": "child 2 response 2"
+            },
+            {
+              "text": "child 2 response 3"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_9_1583225688766",
       "dialog_node": "node_4_1583225726582",
@@ -1348,23 +1272,20 @@ let test = {
       "type": "standard",
       "title": "ChildNodeTest3",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "child 3 response 1"
-              },
-              {
-                "text": "child 3 response 2"
-              },
-              {
-                "text": "child 3 response 3"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "child 3 response 1"
+            },
+            {
+              "text": "child 3 response 2"
+            },
+            {
+              "text": "child 3 response 3"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_9_1583225688766",
       "dialog_node": "node_3_1583225735047",
@@ -1374,23 +1295,20 @@ let test = {
       "type": "standard",
       "title": "ChildNodeTest1",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "child 1 response 1"
-              },
-              {
-                "text": "child 1 response 2"
-              },
-              {
-                "text": "child 1 response 3"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "child 1 response 1"
+            },
+            {
+              "text": "child 1 response 2"
+            },
+            {
+              "text": "child 1 response 3"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_9_1583225688766",
       "dialog_node": "node_2_1583225702635"
@@ -1399,17 +1317,13 @@ let test = {
       "type": "standard",
       "title": "GrandChildNodeTest4",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "grandchild 4 response 1"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+            "text": "grandchild 4 response 1"
+          }],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_4_1583225726582",
       "dialog_node": "node_8_1583225774265",
@@ -1419,20 +1333,17 @@ let test = {
       "type": "standard",
       "title": "GrandChildNodeTest3",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "grandchild 3 response 1"
-              },
-              {
-                "text": "grandchild 3 response 2"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "grandchild 3 response 1"
+            },
+            {
+              "text": "grandchild 3 response 2"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_4_1583225726582",
       "dialog_node": "node_2_1583225765692"
@@ -1441,23 +1352,20 @@ let test = {
       "type": "standard",
       "title": "GrandGrandChildNodeTest1",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "grandgrandchild 1 response 1"
-              },
-              {
-                "text": "grandgrandchild 1 response 2"
-              },
-              {
-                "text": "grandgrandchild 1 response 3"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "grandgrandchild 1 response 1"
+            },
+            {
+              "text": "grandgrandchild 1 response 2"
+            },
+            {
+              "text": "grandgrandchild 1 response 3"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "parent": "node_9_1583225741000",
       "dialog_node": "node_7_1583225792952"
@@ -1466,30 +1374,27 @@ let test = {
       "type": "frame",
       "title": "Confirm keuze",
       "output": {
-        "generic": [
-          {
-            "title": "U heeft gekozen voor $StandaardCupcakes, wenst u af te rekenen of iets anders te bestellen?",
-            "options": [
-              {
-                "label": "Ik wil afrekenen",
-                "value": {
-                  "input": {
-                    "text": "Optie1"
-                  }
-                }
-              },
-              {
-                "label": "Ik wil meer bestellen",
-                "value": {
-                  "input": {
-                    "text": "Optie2"
-                  }
+        "generic": [{
+          "title": "U heeft gekozen voor $StandaardCupcakes, wenst u af te rekenen of iets anders te bestellen?",
+          "options": [{
+              "label": "Ik wil afrekenen",
+              "value": {
+                "input": {
+                  "text": "Optie1"
                 }
               }
-            ],
-            "response_type": "option"
-          }
-        ]
+            },
+            {
+              "label": "Ik wil meer bestellen",
+              "value": {
+                "input": {
+                  "text": "Optie2"
+                }
+              }
+            }
+          ],
+          "response_type": "option"
+        }]
       },
       "parent": "node_5_1586610239372",
       "conditions": "@StandaardCupcakes",
@@ -1499,20 +1404,17 @@ let test = {
       "type": "standard",
       "title": "Bedanking",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "bedankt om te shoppen bij Sherlock. Nog een fijne dag."
-              },
-              {
-                "text": "Dankuwel voor uw aankoop! Nog een goede dag gewenst."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "bedankt om te shoppen bij Sherlock. Nog een fijne dag."
+            },
+            {
+              "text": "Dankuwel voor uw aankoop! Nog een goede dag gewenst."
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "dialog_node": "node_4_1587134014122",
       "previous_sibling": "Welcome"
@@ -1521,8 +1423,7 @@ let test = {
       "type": "frame",
       "title": "Reserveren",
       "output": {
-        "generic": [
-          {
+        "generic": [{
             "values": [],
             "response_type": "text",
             "selection_policy": "sequential"
@@ -1542,23 +1443,20 @@ let test = {
       "type": "standard",
       "title": "Anything else",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "I didn't understand. You can try rephrasing."
-              },
-              {
-                "text": "Can you reword your statement? I'm not understanding."
-              },
-              {
-                "text": "I didn't get your meaning."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "I didn't understand. You can try rephrasing."
+            },
+            {
+              "text": "Can you reword your statement? I'm not understanding."
+            },
+            {
+              "text": "I didn't get your meaning."
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "conditions": "anything_else",
       "dialog_node": "Anything else",
@@ -1569,23 +1467,20 @@ let test = {
       "type": "standard",
       "title": "Starten cupcake shop",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Hallo, welkom bij Sherlock's Cupcakeshop, de beste cupcake winkel ter wereld.  Hier kan u zelf cupcakes maken of een standaard exemplaar kiezen."
-              },
-              {
-                "text": "Goededag, wenst u zelf een cupcake samen te stellen of wilt u kiezen tussen één van onze reeds samengestelde cupcakes?"
-              },
-              {
-                "text": "Hallo, u kan kiezen door een op voorhand gemaakte cupcake of zelf een cupcake te maken."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "Hallo, welkom bij Sherlock's Cupcakeshop, de beste cupcake winkel ter wereld.  Hier kan u zelf cupcakes maken of een standaard exemplaar kiezen."
+            },
+            {
+              "text": "Goededag, wenst u zelf een cupcake samen te stellen of wilt u kiezen tussen één van onze reeds samengestelde cupcakes?"
+            },
+            {
+              "text": "Hallo, u kan kiezen door een op voorhand gemaakte cupcake of zelf een cupcake te maken."
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "conditions": "#BezoekenCupcakeWinkel",
       "dialog_node": "node_5_1586608437803",
@@ -1595,26 +1490,23 @@ let test = {
       "type": "standard",
       "title": "Handle Greetings",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Hi, I'm Sherlock, aIBM Watson Assistant chatbot, how may I help you?"
-              },
-              {
-                "text": "Hi, I'm Sherlock, how can I be of assistance"
-              },
-              {
-                "text": "Do you have any question? Because I'm here to answer them all!"
-              },
-              {
-                "text": "Hi, How can I help you today?"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "Hi, I'm Sherlock, aIBM Watson Assistant chatbot, how may I help you?"
+            },
+            {
+              "text": "Hi, I'm Sherlock, how can I be of assistance"
+            },
+            {
+              "text": "Do you have any question? Because I'm here to answer them all!"
+            },
+            {
+              "text": "Hi, How can I help you today?"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "conditions": "#Greetings",
       "dialog_node": "node_8_1583181757786",
@@ -1624,23 +1516,20 @@ let test = {
       "type": "standard",
       "title": "ParentNodeTest",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "parent response 1"
-              },
-              {
-                "text": "parent response 2"
-              },
-              {
-                "text": "parent response 3"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "parent response 1"
+            },
+            {
+              "text": "parent response 2"
+            },
+            {
+              "text": "parent response 3"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "dialog_node": "node_9_1583225688766",
       "previous_sibling": "node_5_1586608437803"
@@ -1649,10 +1538,8 @@ let test = {
       "type": "standard",
       "title": "Afrekenen",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
+        "generic": [{
+            "values": [{
                 "text": "Wenst u te betalen met kaart of cash?"
               },
               {
@@ -1664,8 +1551,7 @@ let test = {
           },
           {
             "title": "Ik betaal",
-            "options": [
-              {
+            "options": [{
                 "label": "met kaart",
                 "value": {
                   "input": {
@@ -1694,29 +1580,26 @@ let test = {
       "type": "standard",
       "title": "Counter boredom",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Hoe kan ik helpen?"
-              },
-              {
-                "text": "Waarmee kan ik je van dienst zijn?"
-              },
-              {
-                "text": "Hoe kan ik dat oplossen?"
-              },
-              {
-                "text": "Hoe kan ik daar iets aan veranderen?"
-              },
-              {
-                "text": "Waarmee kan ik je helpen?"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+              "text": "Hoe kan ik helpen?"
+            },
+            {
+              "text": "Waarmee kan ik je van dienst zijn?"
+            },
+            {
+              "text": "Hoe kan ik dat oplossen?"
+            },
+            {
+              "text": "Hoe kan ik daar iets aan veranderen?"
+            },
+            {
+              "text": "Waarmee kan ik je helpen?"
+            }
+          ],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "conditions": "#Bored",
       "dialog_node": "node_7_1583184097089",
@@ -1726,17 +1609,13 @@ let test = {
       "type": "standard",
       "title": "Welcome",
       "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Hello. How can I help you?"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+        "generic": [{
+          "values": [{
+            "text": "Hello. How can I help you?"
+          }],
+          "response_type": "text",
+          "selection_policy": "sequential"
+        }]
       },
       "conditions": "welcome",
       "dialog_node": "Welcome"
@@ -1766,20 +1645,20 @@ let test = {
   "description": ""
 }
 
-function getOutput(node){  
+function getOutput(node) {
   let out = []
-  if((node.type !== "standard" && node.type !== "frame")|| node.output ==undefined ){
+  if ((node.type !== "standard" && node.type !== "frame") || node.output == undefined) {
     return out;
   }
-  let gen = node.output.generic;  
-  for(let i = 0; i < gen.length; i++){
+  let gen = node.output.generic;
+  for (let i = 0; i < gen.length; i++) {
     console.log(gen[i])
-    if(gen[i].response_type == "text"){
-      if(!out.includes("TEXT")){
+    if (gen[i].response_type == "text") {
+      if (!out.includes("TEXT")) {
         out.push("TEXT");
-      }        
+      }
     }
-    if(gen[i].response_type == "options"){
+    if (gen[i].response_type == "options") {
       out.push("OPTIES");
     }
   }
@@ -1788,45 +1667,93 @@ function getOutput(node){
 
 //map alle data naar een versimpeld model
 let nodes = test.dialog_nodes;
-let nodes_simpel = nodes.map(n => ({name: n.title, cond: n.conditions, type: n.type, parent: n.parent, id: n.dialog_node, children: [], output: getOutput(n)}));
+let nodes_simpel = nodes.map(n => ({
+  name: n.title,
+  cond: n.conditions,
+  type: n.type,
+  parent: n.parent,
+  id: n.dialog_node,
+  children: [],
+  event: n.event_name,
+  output: getOutput(n),
+}));
 
 
 // maak een array voor de root nodes
 // +
 // maak een dictionary met de parentID als key en de waarden zijn de children nodes van deze parent 
 let inner_nodes = {};
+let secondary_nodes = {};
 let root_nodes = [];
 let temp = null;
-for(let i = 0; i < nodes_simpel.length; i++){
-	temp = nodes_simpel[i];
-	if(temp.type === "standard" || temp.type === "frame"){
-		if(temp.parent == undefined){
-			root_nodes.push(temp);
-		}else{
-			if(inner_nodes[temp.parent] == undefined){
-				inner_nodes[temp.parent] = {children: []};
-			}
-			inner_nodes[temp.parent].children.push(temp);
-		}
-	}
-}
-// hulpfunctie waarbij er recursief nodes worden toegevoegd aan hun ouder
-function recursive_hierachy(parent){
-	let childs = inner_nodes[parent.id] === undefined ? [] : inner_nodes[parent.id].children;
-	let childs2 = [];
-	for(let j = 0; j < childs.length; j++){
-		childs2.push(recursive_hierachy(childs[j]));
-	}
-	parent.children =childs2;
-	return parent
-}
-
-
-export function convert_json(){
-  for(let i = 0; i < root_nodes.length; i++){
-    recursive_hierachy(root_nodes[i]);  
+for (let i = 0; i < nodes_simpel.length; i++) {
+  temp = nodes_simpel[i];
+  if (temp.type === "standard" || temp.type === "frame") {
+    if (temp.parent == undefined) {
+      root_nodes.push(temp);
+    } else {
+      if (inner_nodes[temp.parent] == undefined) {
+        inner_nodes[temp.parent] = {
+          children: []
+        };
+      }
+      inner_nodes[temp.parent].children.push(temp);
+    }
+  } else {
+    if (secondary_nodes[temp.parent] == undefined) {
+      secondary_nodes[temp.parent] = {
+        children: []
+      };
+    }
+    secondary_nodes[temp.parent].children.push(temp);
   }
-  return {name: "root", children: root_nodes};
 }
+console.log(secondary_nodes)
+// hulpfunctie waarbij er recursief nodes worden toegevoegd aan hun ouder
+function recursive_hierachy(parent) {
+  let childs = inner_nodes[parent.id] === undefined ? [] : inner_nodes[parent.id].children;
+  let childs2 = [];
+  for (let j = 0; j < childs.length; j++) {
+    childs[j] = checkSecondaryNodes(childs[j]);
+    childs2.push(recursive_hierachy(childs[j]));
+  }
+  parent.children = childs2;
+  return parent
+}
+
+function checkSecondaryNodes(node) {
+  let secondary = secondary_nodes[node.id];
+  node.events = false;
+  node.slots = false;
+  node.condResp = false;
+  node.eventnames = []
+  if (secondary !== undefined) {
+    for (let i = 0; i < secondary.children.length; i++) {
+      if (secondary.children[i].type === "event_handler") {
+        node.events = true;
+        node.eventnames.push(secondary.children[i].event)
+      }
+      if (secondary.children[i].type === "slot") {
+        node.slots = true;
+      }
+      if (secondary.children[i].type === "response_condition") {
+        node.condResp = true;
+      }
+    }
+  }  
+  return node;
+}
+
+
+export function convert_json() {
+  for (let i = 0; i < root_nodes.length; i++) {
+    recursive_hierachy(root_nodes[i]);
+  }
+  return {
+    name: "root",
+    children: root_nodes
+  };
+}
+
 
 document.getElementById('chatbot').innerHTML = "CHATBOT: " + test.name
