@@ -1674,7 +1674,7 @@ let nodes_simpel = nodes.map(n => ({
   id: n.dialog_node,
   children: [],
   event: n.event_name,
-  output: getOutput(n),
+  output: getOutput(n)
 }));
 
 
@@ -1716,6 +1716,9 @@ function recursive_hierachy(parent) {
   for (let j = 0; j < childs.length; j++) {
 
     childs2.push(recursive_hierachy(childs[j]));
+  }
+  if(childs.length ===0){
+    parent.value = 1;
   }
   parent.children = childs2;
   return parent

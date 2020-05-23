@@ -1,13 +1,18 @@
 import {
     convert_json
 } from "./converter.js";
-
-let width = 1000;
+import {
+    hover,
+    onExitNode
+} from "./hover.js";
+let width = 600;
 let radius = width / 6;
 let format = d3.format(",d")
-
+let data = convert_json();
 let partition = data => {
-    const root = d3.hierarchy(data);
+    const root = d3.hierarchy(data)
+        .sum(d => d.value)
+        .sort((a, b) => b.value - a.value);
     return d3.partition()
         .size([2 * Math.PI, root.height + 1])(root);
 }
@@ -20,17 +25,19 @@ let arc = d3.arc()
     .innerRadius(d => d.y0 * radius)
     .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
 
-let color = (data) => {
-    return d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1))
-}
+let color =  d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1))
 
+console.log(data)
 const root = partition(convert_json());
-
 root.each(d => d.current = d);
 
 const visualization = d3.select("#sunburst")
+    .append("svg")
     .attr("viewBox", [0, 0, width, width])
-    .style("font", "10px sans-serif");
+    .style("font", "10px sans-serif")
+    .call(d3.zoom().on("zoom", function () {
+        visualization.attr("transform", d3.event.transform)
+    }));
 
 const g = visualization.append("g")
     .attr("transform", `translate(${width / 2},${width / 2})`);
@@ -41,17 +48,20 @@ const path = g.append("g")
     .enter().append("path")
     .attr("fill", d => {
         while (d.depth > 1) d = d.parent;
-        return "blue";
+        return color;
     })
     .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
-    .attr("d", d => arc(d.current));
+    .attr("d", d => arc(d.current))
+    .on("mouseover", d => hover(d))
+    .on("mouseout", onExitNode());
 
 path.filter(d => d.children)
     .style("cursor", "pointer")
     .on("click", clicked);
+    
 
 path.append("title")
-    .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}`);
+    .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
 
 const label = g.append("g")
     .attr("pointer-events", "none")
@@ -118,5 +128,6 @@ function labelTransform(d) {
     const y = (d.y0 + d.y1) / 2 * radius;
     return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
 }
+
 
 visualization.node();

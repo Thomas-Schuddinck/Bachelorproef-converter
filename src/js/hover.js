@@ -1,4 +1,4 @@
-export function onEnterNode(node) {
+function onEnterNode(node) {
     console.log(node);
     document.getElementById('details').style.display = "block";
     document.getElementById('name').innerHTML = "Node: " + node.data.name;
@@ -17,6 +17,7 @@ export function onExitNode() {
     document.getElementById('events').innerHTML = "";
     document.getElementById('conres').innerHTML = "";
     document.getElementById('slots').innerHTML = "";
+    document.getElementById('path').innerHTML = "";
 }
 
 
@@ -35,4 +36,21 @@ function determineTriggerType(input) {
             break;
     }
     return type === "" ? input.slice(1) : input.slice(1) + " ("+ type + ")"
+}
+
+export function hover(n) {
+    onEnterNode(n);
+    let temp = n
+    let path = []
+    do{
+        path.push(temp.data.name)
+        temp = temp.parent
+    } while(temp.parent !== null)
+    path.push("root")
+    setPath(path.reverse())
+}
+
+function setPath(arr){
+    let text = arr.toString().split(",").join(" > ")
+    document.getElementById('path').innerHTML = text;
 }

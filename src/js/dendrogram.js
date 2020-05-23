@@ -2,7 +2,7 @@ import {
     convert_json
 } from "./converter.js";
 import {
-    onEnterNode,
+    hover,
     onExitNode
 } from "./hover.js";
 //define layout constraints
@@ -89,7 +89,7 @@ function update(source) {
             d.children = d.children ? null : d._children;
             update(d);
         })
-        .on("mouseover", d => hover(d, nodeEnter))
+        .on("mouseover", d => hover(d))
         .on("mouseout", onExitNode());
 
 
@@ -167,19 +167,3 @@ function update(source) {
 update(root);
 visualization.node();
 
-function hover(n, nodes) {
-    onEnterNode(n);
-    let temp = n
-    let path = []
-    do{
-        path.push(temp.data.name)
-        temp = temp.parent
-    } while(temp.parent !== null)
-    path.push("root")
-    setPath(path.reverse())
-}
-
-function setPath(arr){
-    let text = arr.toString().split(",").join(" > ")
-    document.getElementById('path').innerHTML = text;
-}
