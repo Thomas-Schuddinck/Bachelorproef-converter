@@ -13,7 +13,7 @@
 }
 
 .node:active > * {
-    fill: rgb(16, 223, 16);
+    fill: rgb(146, 9, 135);
 }
 
 
@@ -28,6 +28,13 @@
 .text_hasChildren {
     text-anchor: end;
     fill: rgb(37, 55, 223);
+}
+.text_hasChildren:hover {
+    font-weight: bold;
+}
+
+.text_hasNoChildren:hover {
+    font-weight: bold;
 }
 
 .text_hasNoChildren {
