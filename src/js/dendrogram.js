@@ -37,7 +37,7 @@ const visualization = d3.select("#viz")
     .style("user-select", "none")
     .call(d3.zoom().on("zoom", function () {
         visualization.attr("transform", d3.event.transform)
-     }));
+    }));
 
 
 // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
@@ -89,7 +89,7 @@ function update(source) {
             d.children = d.children ? null : d._children;
             update(d);
         })
-        .on("mouseover", d => onEnterNode(d))
+        .on("mouseover", d => hover(d))
         .on("mouseout", onExitNode());
 
 
@@ -164,3 +164,8 @@ function update(source) {
 
 update(root);
 visualization.node();
+
+function hover(n) {
+    onEnterNode(n)
+
+}

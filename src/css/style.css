@@ -8,9 +8,14 @@
     width: 100%;
 }
 
-.circle {
-    stroke-width: 10;
+.node:hover > * {
+    fill: rgb(16, 223, 16);
 }
+
+.node:active > * {
+    fill: rgb(16, 223, 16);
+}
+
 
 .circle_hasChildren {
     fill: rgb(37, 55, 223);
@@ -51,3 +56,10 @@ td:nth-child(even){
 td:nth-child(2){
     border-right: 1px solid white;
 }
+.highlight circle { fill:pink }
+.highlight circle { fill:pink }
+.highlight text { fill:pink }
+.leaf circle { fill:red }
+.leaf circle { fill:red }
+.leaf text { fill:red }
+path.highlight { stroke:pink }
