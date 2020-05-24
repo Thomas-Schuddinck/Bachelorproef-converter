@@ -1657,8 +1657,8 @@ function getOutput(node) {
         out.push("TEXT");
       }
     }
-    if (gen[i].response_type == "options") {
-      out.push("OPTIES");
+    if (gen[i].response_type == "option") {
+      out.push("OPTIONS");
     }
   }
   return out;
