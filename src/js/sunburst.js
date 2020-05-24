@@ -5,8 +5,15 @@ import {
     hover,
     onExitNode
 } from "./hover.js";
-let width = 600;
-let radius = width / 6;
+
+let margin = ({
+    top: 10,
+    right: 120,
+    bottom: 10,
+    left: 40
+})
+let width = 400;
+let radius = width / 16;
 let format = d3.format(",d")
 let data = convert_json();
 let partition = data => {
@@ -27,20 +34,19 @@ let arc = d3.arc()
 
 let color =  d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1))
 
-console.log(data)
 const root = partition(convert_json());
 root.each(d => d.current = d);
 
 const visualization = d3.select("#sunburst")
     .append("svg")
     .attr("viewBox", [0, 0, width, width])
-    .style("font", "10px sans-serif")
+    .style("font", "2px sans-serif")
     .call(d3.zoom().on("zoom", function () {
         visualization.attr("transform", d3.event.transform)
     }));
 
 const g = visualization.append("g")
-    .attr("transform", `translate(${width / 2},${width / 2})`);
+    .attr("transform", `translate(${width / 3},${width / 4})`);
 
 const path = g.append("g")
     .selectAll("path")
@@ -48,9 +54,9 @@ const path = g.append("g")
     .enter().append("path")
     .attr("fill", d => {
         while (d.depth > 1) d = d.parent;
-        return color;
+        return color(d.data.name);
     })
-    .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
+    .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0.3)
     .attr("d", d => arc(d.current))
     .on("mouseover", d => hover(d))
     .on("mouseout", onExitNode());
@@ -70,7 +76,7 @@ const label = g.append("g")
     .selectAll("text")
     .data(root.descendants().slice(1))
     .enter().append("text")
-    .attr("dy", "0.35em")
+    .attr("dy", "0.1em")
     .attr("fill-opacity", d => +labelVisible(d.current))
     .attr("transform", d => labelTransform(d.current))
     .text(d => d.data.name);
@@ -116,11 +122,11 @@ function clicked(p) {
 }
 
 function arcVisible(d) {
-    return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
+    return d.y0 >= 1 && d.x1 > d.x0;
 }
 
 function labelVisible(d) {
-    return d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
+    return d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
 }
 
 function labelTransform(d) {
