@@ -56,6 +56,7 @@ const path = g.append("g")
         while (d.depth > 1) d = d.parent;
         return color(d.data.name);
     })
+    .attr("class", "arc_hover")
     .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0.3)
     .attr("d", d => arc(d.current))
     .on("mouseover", d => hover(d))

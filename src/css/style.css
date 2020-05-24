@@ -80,3 +80,6 @@ path.highlight { stroke:pink }
     align-self: start;
     border: 1px solid black;
 }
+.arc_hover:hover{
+    fill-opacity: 1;
+}
